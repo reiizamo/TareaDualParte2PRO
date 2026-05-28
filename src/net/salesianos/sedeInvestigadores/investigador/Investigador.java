@@ -1,6 +1,6 @@
 package net.salesianos.sedeInvestigadores.investigador;
 
-public class Investigador {
+public abstract class Investigador {
     private String nombre;
     private String especialidad;
     private int sueldo;
@@ -13,5 +13,5 @@ public class Investigador {
         this.sueldo = sueldo;
     }
 
-    
+
 }
