@@ -28,6 +28,9 @@ public class Quimico extends Investigador implements Colaboracion{
 
     @Override
     public String trabajar() {
+        if (this.elementos.isEmpty()){
+            return "No hay elementos";
+        }
         for (int i = 0; i < this.elementos.size() / 2; i++) {
             int j = this.elementos.size() - 1 - i;
             String elemento = this.elementos.get(i);
@@ -45,24 +48,26 @@ public class Quimico extends Investigador implements Colaboracion{
 
     @Override
     public String trabajoDual() {
-        for (int i = 0; i < this.elementos.size() - 1; i++) {
-            for (int j = 0; j < this.elementos.size() - 1 - i; j++) {
-                if (this.elementos.get(j).length() > this.elementos.get(j + 1).length()) {
-                    String elemento = this.elementos.get(j);
-                    this.elementos.set(j, this.elementos.get(j + 1));
-                    this.elementos.set(j + 1, elemento);
+        try {
+            for (int i = 0; i < this.elementos.size() - 1; i++) {
+                for (int j = 0; j < this.elementos.size() - 1 - i; j++) {
+                    if (this.elementos.get(j).length() > this.elementos.get(j + 1).length()) {
+                        String elemento = this.elementos.get(j);
+                        this.elementos.set(j, this.elementos.get(j + 1));
+                        this.elementos.set(j + 1, elemento);
+                    }
                 }
             }
+            System.out.print("Ordenados:\n");
+
+            for (String elemento : this.elementos) {
+                System.out.print("   "+elemento+"\n");
+            }
+            String ultimo = this.elementos.get(this.elementos.size() - 1) + " Eliminado";
+            this.elementos.remove(this.elementos.size() - 1);
+            return ultimo;
+        } catch (IndexOutOfBoundsException e) {
+            return "No hay elemento";
         }
-
-        System.out.print("Ordenados:\n");
-
-        for (String elemento : this.elementos) {
-            System.out.print("   "+elemento+"\n");
-        }
-
-        this.elementos.remove(this.elementos.size() - 1);
-
-        return this.elementos.get(this.elementos.size() - 1) + "Eliminado";
     }
 }

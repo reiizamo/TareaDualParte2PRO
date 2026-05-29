@@ -11,6 +11,44 @@ public class App {
         Biologo biologo = new Biologo("Oriday", "Marina", 1600);
         Quimico quimico = new Quimico("Walter", "Organica", 1300);
 
+        Scanner sc = new Scanner(System.in);
+        int opcion = -1;
+
+        try {
+            do {
+                System.out.print("\n=== MENÚ PRINCIPAL ===\n");
+                System.out.print("    1. Matemático\n");
+                System.out.print("    2. Biólogo\n");
+                System.out.print("    3. Químico\n");
+                System.out.print("    0. Salir\n\n");
+                System.out.print("Elige investigador: ");
+                opcion = sc.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        menuMatematico(matematico, sc);
+                        break;
+                    case 2:
+                        menuBiologo(biologo, sc);
+                        break;
+                    case 3:
+                        menuQuimico(quimico, sc);
+                        break;
+                    case 0:
+                        System.out.println("Saliendo...");
+                        break;
+                    default:
+                        System.out.println("Opción no válida");
+                        break;
+                }
+
+            } while (opcion != 0);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: debes introducir números.");
+        } finally {
+            sc.close();
+            System.out.println("Scanner cerrado correctamente.");
+        }
     }
 
     private static void menuMatematico(Matematico mate, Scanner sc) {

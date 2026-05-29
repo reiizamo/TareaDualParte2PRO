@@ -15,7 +15,7 @@ public class Biologo extends Investigador implements Colaboracion{
 
     public String aniadirEspecimen(String especimen){
         this.especimenes.add(especimen);
-        return especimen + "añadido";
+        return especimen + " añadido";
     }
 
     @Override
@@ -28,29 +28,35 @@ public class Biologo extends Investigador implements Colaboracion{
 
     @Override
     public String trabajar() {
-        for (int i = 0; i < this.especimenes.size() - 1; i++) {
-            for (int j = 0; j < this.especimenes.size() - 1 - i; j++) {
-                if (this.especimenes.get(j).length() > this.especimenes.get(j + 1).length()) {
-                    String especimen = this.especimenes.get(j);
-                    this.especimenes.set(j, this.especimenes.get(j + 1));
-                    this.especimenes.set(j + 1, especimen);
+        try {
+            for (int i = 0; i < this.especimenes.size() - 1; i++) {
+                for (int j = 0; j < this.especimenes.size() - 1 - i; j++) {
+                    if (this.especimenes.get(j).length() > this.especimenes.get(j + 1).length()) {
+                        String especimen = this.especimenes.get(j);
+                        this.especimenes.set(j, this.especimenes.get(j + 1));
+                        this.especimenes.set(j + 1, especimen);
+                    }
                 }
             }
+            System.out.print("Ordenados:\n");
+
+            for (String especimen : this.especimenes) {
+                System.out.print("   "+especimen+"\n");
+            }
+            String ultimo = this.especimenes.get(this.especimenes.size() - 1) + " Eliminado";
+            this.especimenes.remove(this.especimenes.size() - 1);
+            return ultimo;
+        } catch (IndexOutOfBoundsException e) {
+            return "No hay especimenes";
         }
-
-        System.out.print("Ordenados:\n");
-
-        for (String especimen : this.especimenes) {
-            System.out.print("   "+especimen+"\n");
-        }
-
-        this.especimenes.remove(this.especimenes.size() - 1);
-
-        return this.especimenes.get(this.especimenes.size() - 1) + "Eliminado";
+        
     }
 
     @Override
     public String trabajoDual() {
+        if (this.especimenes.isEmpty()){
+            return "No hay especimenes";
+        }
         for (int i = 0; i < this.especimenes.size() / 2; i++) {
             int j = this.especimenes.size() - 1 - i;
             String especimen = this.especimenes.get(i);
