@@ -72,5 +72,38 @@ public class App {
         }
     }
 
-    
+    private static void menuQuimico(Quimico qui, Scanner sc) {
+        try {
+            System.out.println("\n--- MENÚ QUÍMICO ---");
+            System.out.print("    1. Estado Sueldo\n");
+            System.out.print("    2. Añadir elemento\n");
+            System.out.print("    3. Trabajar\n");
+            System.out.print("    4. Trabajo dual\n");
+
+            int op = sc.nextInt();
+
+            switch (op) {
+                case 1:
+                    System.out.println(qui.estadoSueldo());
+                    break;
+                case 2:
+                    System.out.print("Introduce elemento: ");
+                    String elemento = sc.next();
+                    System.out.println(qui.aniadirEspecimen(elemento));
+                    break;
+                case 3:
+                    System.out.println(qui.trabajar());
+                    break;
+                case 4:
+                    System.out.println(qui.trabajoDual());
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("Error: entrada incorrecta");
+        }
+    }
 }
