@@ -38,4 +38,39 @@ public class App {
 
     }
 
+    private static void menuBiologo(Biologo bio, Scanner sc) {
+        try {
+            System.out.println("\n--- MENÚ BIÓLOGO ---");
+            System.out.print("    1. Estado Sueldo\n");
+            System.out.print("    2. Añadir espécimen\n");
+            System.out.print("    3. Trabajar\n");
+            System.out.print("    4. Trabajo dual\n");
+
+            int op = sc.nextInt();
+
+            switch (op) {
+                case 1:
+                    System.out.println(bio.estadoSueldo()); 
+                    break;
+                case 2: 
+                    System.out.print("Introduce espécimen: ");
+                    String especimen = sc.next();
+                    System.out.println(bio.aniadirEspecimen(especimen));
+                    break;
+                case 3:
+                    System.out.println(bio.trabajar());
+                    break;
+                case 4:
+                    System.out.println(bio.trabajoDual());
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Error: entrada incorrecta");
+        }
+    }
+
+    
 }
