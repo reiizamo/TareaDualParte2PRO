@@ -20,7 +20,7 @@ public class Biologo extends Investigador{
     @Override
     public String estadoSueldo() {
         if (getSueldo() < 1500){
-            return "Sueldo menos a 1800 euros, aumento necesario";
+            return "Sueldo menos a 1500 euros, aumento necesario";
         }
         return "Sueldo de: " + getSueldo();
     }
