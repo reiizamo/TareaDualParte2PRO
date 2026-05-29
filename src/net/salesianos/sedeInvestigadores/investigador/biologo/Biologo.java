@@ -12,4 +12,39 @@ public class Biologo extends Investigador{
         super(nombre, especialidad, sueldo);
     }
 
+    public String aniadirEspecimen(String especimen){
+        this.especimenes.add(especimen);
+        return especimen + "añadido";
+    }
+
+    @Override
+    public String estadoSueldo() {
+        if (getSueldo() < 1500){
+            return "Sueldo menos a 1800 euros, aumento necesario";
+        }
+        return "Sueldo de: " + getSueldo();
+    }
+
+    @Override
+    public String trabajar() {
+        for (int i = 0; i < this.especimenes.size() - 1; i++) {
+            for (int j = 0; j < this.especimenes.size() - 1 - i; j++) {
+                if (this.especimenes.get(j).length() > this.especimenes.get(j + 1).length()) {
+                    String especimen = this.especimenes.get(j);
+                    this.especimenes.set(j, this.especimenes.get(j + 1));
+                    this.especimenes.set(j + 1, especimen);
+                }
+            }
+        }
+
+        System.out.print("Ordenados:\n");
+
+        for (String especimen : this.especimenes) {
+            System.out.print("   "+especimen+"\n");
+        }
+
+        this.especimenes.remove(this.especimenes.size() - 1);
+
+        return this.especimenes.get(this.especimenes.size() - 1) + "Eliminado";
+    }
 }
