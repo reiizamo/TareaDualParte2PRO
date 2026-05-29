@@ -1,5 +1,7 @@
 package net.salesianos.sedeInvestigadores.investigador;
 
+import java.util.ArrayList;
+
 public abstract class Investigador {
     private String nombre;
     private String especialidad;
@@ -44,7 +46,7 @@ public abstract class Investigador {
                 "Resta de: " + num1 + " - " + num2 + " = " + (num1-num2);
     }
 
-    public abstract void estadoSueldo();
+    public abstract String estadoSueldo();
     public abstract String trabajar();
 
 }
