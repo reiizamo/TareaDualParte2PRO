@@ -1,8 +1,9 @@
 package net.salesianos.sedeInvestigadores.investigador.biologo;
 import java.util.ArrayList;
+import net.salesianos.sedeInvestigadores.colaboracion.Colaboracion;
 import net.salesianos.sedeInvestigadores.investigador.Investigador;
 
-public class Biologo extends Investigador{
+public class Biologo extends Investigador implements Colaboracion{
     
     private ArrayList<String> especimenes = new ArrayList<>();
 
@@ -46,5 +47,22 @@ public class Biologo extends Investigador{
         this.especimenes.remove(this.especimenes.size() - 1);
 
         return this.especimenes.get(this.especimenes.size() - 1) + "Eliminado";
+    }
+
+    @Override
+    public String trabajoDual() {
+        for (int i = 0; i < this.especimenes.size() / 2; i++) {
+            int j = this.especimenes.size() - 1 - i;
+            String especimen = this.especimenes.get(i);
+
+            this.especimenes.set(i, this.especimenes.get(j));
+            this.especimenes.set(j, especimen);
+        }
+
+        System.out.print("Lista invertida:\n");
+        for (String especimen : this.especimenes) {
+            System.out.println("    "+especimen+"\n");
+        }
+        return "Lista invertida correctamente";
     }
 }

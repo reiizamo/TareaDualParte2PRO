@@ -32,7 +32,7 @@ public class Quimico extends Investigador implements Colaboracion{
             int j = this.elementos.size() - 1 - i;
             String elemento = this.elementos.get(i);
 
-            this.elementos.set(i, elementos.get(j));
+            this.elementos.set(i, this.elementos.get(j));
             this.elementos.set(j, elemento);
         }
 
@@ -48,9 +48,9 @@ public class Quimico extends Investigador implements Colaboracion{
         for (int i = 0; i < this.elementos.size() - 1; i++) {
             for (int j = 0; j < this.elementos.size() - 1 - i; j++) {
                 if (this.elementos.get(j).length() > this.elementos.get(j + 1).length()) {
-                    String especimen = this.elementos.get(j);
+                    String elemento = this.elementos.get(j);
                     this.elementos.set(j, this.elementos.get(j + 1));
-                    this.elementos.set(j + 1, especimen);
+                    this.elementos.set(j + 1, elemento);
                 }
             }
         }
