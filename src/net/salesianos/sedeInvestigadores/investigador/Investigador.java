@@ -1,6 +1,5 @@
 package net.salesianos.sedeInvestigadores.investigador;
 
-import java.util.ArrayList;
 
 public abstract class Investigador {
     private String nombre;
