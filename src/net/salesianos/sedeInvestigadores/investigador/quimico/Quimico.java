@@ -12,5 +12,33 @@ public class Quimico extends Investigador {
         super(nombre, especialidad, sueldo);
     }
 
-    
+    public String aniadirEspecimen(String elemento){
+        this.elementos.add(elemento);
+        return elemento + "añadido";
+    }
+
+    @Override
+    public String estadoSueldo() {
+        if (getSueldo() < 1200){
+            return "Sueldo menos a 1200 euros, aumento necesario";
+        }
+        return "Sueldo de: " + getSueldo();
+    }
+
+    @Override
+    public String trabajar() {
+        for (int i = 0; i < this.elementos.size() / 2; i++) {
+            int j = this.elementos.size() - 1 - i;
+            String elemento = this.elementos.get(i);
+
+            this.elementos.set(i, elementos.get(j));
+            this.elementos.set(j, elemento);
+        }
+
+        System.out.print("Lista invertida:\n");
+        for (String elemento : this.elementos) {
+            System.out.println("    "+elemento+"\n");
+        }
+        return "Lista invertida correctamente";
+    }
 }
