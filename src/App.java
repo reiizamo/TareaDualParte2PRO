@@ -56,6 +56,8 @@ public class App {
             System.out.print("\n--- MENÚ MATEMÁTICO ---\n");
             System.out.print("    1. Estado Sueldo\n");
             System.out.print("    2. Trabajar\n");
+            System.out.print("    3. Identificación\n");
+            System.out.print("    4. Calculo simple\n");
 
             int op = sc.nextInt();
 
@@ -66,7 +68,17 @@ public class App {
                 case 2 :
                     System.out.println(mate.trabajar());
                     break;
-                default :
+                case 3 :
+                    System.out.println(mate.identificion());
+                    break;
+                case 4 :
+                    System.out.print("Introduce el primer número: ");
+                    int num1 = sc.nextInt();
+                    System.out.print("Introduce el segundo número: ");
+                    int num2 = sc.nextInt();
+                    System.out.println(mate.hacerCalculo(num1, num2));
+                    break;
+                default:
                     System.out.println("Opción no válida");
                     break;
             }
@@ -83,6 +95,8 @@ public class App {
             System.out.print("    2. Añadir espécimen\n");
             System.out.print("    3. Trabajar\n");
             System.out.print("    4. Trabajo dual\n");
+            System.out.print("    5. Identificación\n");
+            System.out.print("    6. Calculo simple\n");
 
             int op = sc.nextInt();
 
@@ -101,6 +115,16 @@ public class App {
                 case 4:
                     System.out.println(bio.trabajoDual());
                     break;
+                case 5 :
+                    System.out.println(bio.identificion());
+                    break;
+                case 6 :
+                    System.out.print("Introduce el primer número: ");
+                    int num1 = sc.nextInt();
+                    System.out.print("Introduce el segundo número: ");
+                    int num2 = sc.nextInt();
+                    System.out.println(bio.hacerCalculo(num1, num2));
+                    break;
                 default:
                     System.out.println("Opción no válida");
                     break;
@@ -117,6 +141,8 @@ public class App {
             System.out.print("    2. Añadir elemento\n");
             System.out.print("    3. Trabajar\n");
             System.out.print("    4. Trabajo dual\n");
+            System.out.print("    5. Identificación\n");
+            System.out.print("    6. Calculo simple\n");
 
             int op = sc.nextInt();
 
@@ -134,6 +160,16 @@ public class App {
                     break;
                 case 4:
                     System.out.println(qui.trabajoDual());
+                    break;
+                case 5 :
+                    System.out.println(qui.identificion());
+                    break;
+                case 6 :
+                    System.out.print("Introduce el primer número: ");
+                    int num1 = sc.nextInt();
+                    System.out.print("Introduce el segundo número: ");
+                    int num2 = sc.nextInt();
+                    System.out.println(qui.hacerCalculo(num1, num2));
                     break;
                 default:
                     System.out.println("Opción no válida");
